@@ -1,0 +1,2 @@
+# blog-commentary
+This is an angular 8 project that enables users to post a blogpost in it and share them. These posts can be accessible in the side navigation pane that is accessible by clicking the button sidenav that will list down the title of the posts exist. It will not save the post when it is refreshed. At each post, users can make a comment from these posts and delete the post that is posted. 
