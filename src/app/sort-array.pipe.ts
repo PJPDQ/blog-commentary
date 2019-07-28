@@ -6,14 +6,7 @@ import { PostServiceService } from './post-service.service';
     name: 'sortArrayPipe'
 })
 export class sortArrayPipe implements PipeTransform {
-
-    // constructor(
-    //     private postService: PostServiceService
-    // ) {
-
-    // }
     transform(posts: blogPost[]): blogPost[] {
-        // if (!posts || posts === undefined || posts.length === 0) return null;
 
         posts.sort((postA: blogPost, postB: blogPost) =>
         {

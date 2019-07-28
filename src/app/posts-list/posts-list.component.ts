@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostServiceService } from '../post-service.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { blogPost, commentary } from '../posts.module';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
@@ -12,6 +12,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 export class PostsListComponent implements OnInit {
   posts$: Observable<blogPost[]>;
+  editPost;
   commentForm;
   constructor(
     private postService: PostServiceService,
@@ -23,7 +24,6 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.posts$ = this.postService.getPostsfromHttp();
     this.posts$ = this.postService.getPosts();
   }
 
@@ -34,6 +34,5 @@ export class PostsListComponent implements OnInit {
   addingComment(post: blogPost, newComment: commentary): void {
     this.postService.addingComment(post, newComment);
     this.commentForm.reset();
-    // this.newComment = this.comment;
   }
 }

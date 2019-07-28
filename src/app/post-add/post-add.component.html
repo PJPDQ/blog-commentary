@@ -1,17 +1,5 @@
 <button class="addPost" (click)="addPost=!addPost">+</button>
 
-<!-- <form [formGroup]="postForm" (click)="addingPost(postForm)" *ngIf="addPost">
-  Title: <input formControlName="title" placeholder="Insert Title">  
-  Description: <textarea type="text" formControlName="description" placeholder="What's happening? "></textarea>
-  <button class="button" type="submit">Add Post</button>
-</form> -->
-
-<!-- <div *ngIf="addPost">
-    Title: <input [(ngModel)]="newPost.title" type="text">
-    Description: <textarea type="text" placeholder="What's happening? " [(ngModel)]="newPost.description"></textarea>
-    <button class="button" (click)="addingPost(newPost)">Add Post</button>
-</div> -->
-
 <form [formGroup]="postForm" (ngSubmit)="addingPost(postForm.value)" *ngIf="addPost">
     <div>
         <span>Title: </span>

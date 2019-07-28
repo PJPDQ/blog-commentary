@@ -29,9 +29,5 @@ export class PostAddComponent implements OnInit {
   addingPost(newPost: blogPost): void {
     this.postService.addingPost(newPost)
     this.postForm.reset();
-      // .subscribe(res => {
-      //   this.postForm.reset();
-      //   this.router.navigate(['/'])
-      // });
   }      
 }

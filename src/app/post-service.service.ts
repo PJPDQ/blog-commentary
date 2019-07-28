@@ -2,36 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
 import { posts, blogPost, comments, commentary } from './posts.module';
-
-// const httpOptions = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostServiceService {
-  private postUrl = '/posts.module';
   comment: commentary;
   resetComment: commentary;
   constructor(private http: HttpClient) { }
 
-  // getPostsfromHttp() {
-  //   return this.http.get<blogPost[]>(this.postUrl);
-  // }
-
-  // addingPostfromHttp(post: blogPost) {
-  //   return this.http.post(this.postUrl, post);
-  // }
-
-  swapPosts() {
-    posts.sort();
-  }
   getPosts() {
-    posts.sort();
     return of(posts);
   }
 
@@ -58,14 +40,5 @@ export class PostServiceService {
   deletePost(post: blogPost): void {
     var delPost = posts.indexOf(post);
     posts.splice(delPost, 1);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-
-      return of(result as T);
-    };
   }
 }
