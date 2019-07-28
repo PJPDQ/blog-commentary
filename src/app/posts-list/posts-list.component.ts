@@ -12,9 +12,11 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 export class PostsListComponent implements OnInit {
   posts$: Observable<blogPost[]>;
-
   commentForm;
-  constructor(private postService: PostServiceService, private fb: FormBuilder) { 
+  constructor(
+    private postService: PostServiceService,
+    private fb: FormBuilder,
+  ) { 
     this.commentForm = this.fb.group ( {
       commentContent: new FormControl('', [Validators.required])
     });
@@ -23,9 +25,6 @@ export class PostsListComponent implements OnInit {
   ngOnInit() {
     // this.posts$ = this.postService.getPostsfromHttp();
     this.posts$ = this.postService.getPosts();
-  }
-  editingPost(post: blogPost, newPost: blogPost): blogPost {
-    return this.postService.editingPost(post, newPost); 
   }
 
   deletePost(post: blogPost): void {

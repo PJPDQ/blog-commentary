@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostAddComponent } from './post-add/post-add.component';
-import { PostDetailComponent } from './post-detail/post-detail.component';
 import { sortArrayPipe } from './sort-array.pipe'; 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { sortArrayPipe } from './sort-array.pipe';
     NavbarComponent,
     PostsListComponent,
     PostAddComponent,
-    PostDetailComponent,
     sortArrayPipe
   ],
   imports: [
