@@ -1,0 +1,17 @@
+<div *ngIf="editPost">
+    <div *ngFor="let post of posts | async">
+        <form [formGroup]="editForm" (ngSubmit)="editingPost(post, editForm.value)" *ngIf="editPost">
+                <div>
+                    <span>Title: </span>
+                    <textarea type="text" formControlName="title">Title: </textarea>
+                </div>
+                
+                <div>
+                    <span>Description: </span>
+                    <textarea type="text" formControlName="description" placeholder="What's happening? "></textarea>
+                </div>
+                <button class="button" type="submit">Save</button>
+                <button class="button" type="warning">Delete</button>
+        </form>
+    </div>
+</div>

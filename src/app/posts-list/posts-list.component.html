@@ -1,0 +1,20 @@
+<h2>Recent Posts</h2>
+<ul *ngIf="posts$ | async as posts">
+    <li *ngFor="let post of posts | sortArrayPipe">
+        <h2 id="{{post.id}}">{{post.title}}</h2> <br>
+        <span class="badge" >{{post.description}}</span><br>
+        <button class="editPost" (click)="editPost=!editPost">Edit</button>
+        <button class="commentary" (click)="commentPost=!commentPost">Add comment</button>
+        <br>
+        <p><span class="badge">{{post.comment.length}} comments</span></p>
+        <div *ngFor="let comment of post.comment">
+            <span class="badge">{{comment.commentContent}}</span>
+        </div>
+        <form [formGroup]="commentForm" *ngIf="commentPost==true">
+            <input type="text" placeholder="Leave a comment" formControlName="commentContent">
+            <button (click)="addingComment(post, commentForm.value)">Comment</button>
+            <button (click)="addComment=!addComment">Cancel</button>
+        </form>
+        <button class="delete" (click)="deletePost(post)">Delete</button>
+    </li>
+</ul> 
