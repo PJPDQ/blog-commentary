@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostAddComponent } from './post-add/post-add.component';
-import { sortArrayPipe } from './sort-array.pipe';
+import { SortArrayPipe } from './sort-array.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { sortArrayPipe } from './sort-array.pipe';
     NavbarComponent,
     PostsListComponent,
     PostAddComponent,
-    sortArrayPipe,
+    SortArrayPipe,
   ],
   imports: [
     BrowserModule,

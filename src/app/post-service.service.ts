@@ -3,14 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { posts, blogPost, comments, commentary } from './posts.module';
+import { posts, BlogPost, comments, Commentary } from './posts.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostServiceService {
-  comment: commentary;
-  resetComment: commentary;
+  comment: Commentary;
+  resetComment: Commentary;
   constructor(private http: HttpClient) { }
 
   getPosts() {
@@ -21,24 +21,23 @@ export class PostServiceService {
     return of(posts.find(post => +post.id === +id));
   }
 
-  addingPost(newPost: blogPost): void {
+  addingPost(newPost: BlogPost): void {
     newPost.id = posts.length + 1;
     newPost.comment = [];
     posts.push(newPost);
   }
 
-  addingComment(post: blogPost, newComment: commentary): void {
+  addingComment(post: BlogPost, newComment: Commentary): void {
     post.comment.push(newComment);
     console.log(post);
   }
 
-  editingPost(post: blogPost, newPost: blogPost): blogPost {
+  editingPost(post: BlogPost, newPost: BlogPost): BlogPost {
     post = newPost;
     return post;
   }
 
-  deletePost(post: blogPost): void {
-    var delPost = posts.indexOf(post);
-    posts.splice(delPost, 1);
+  deletePost(post: BlogPost): void {
+    posts.splice(posts.indexOf(post), 1);
   }
 }

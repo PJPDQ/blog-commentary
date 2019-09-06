@@ -1,5 +1,5 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+<mat-sidenav-container class="tp-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="tp-section">
         <a href="#">Home</a>
         <ul *ngIf="posts$ | async as posts">
             <li *ngFor="let post of posts">
@@ -8,10 +8,12 @@
         </ul>
     </mat-sidenav>
 
-    <mat-sidenav-content>
-        <p><button mat-button (click)="sidenav.toggle()">Menu</button></p>
-        <div class="top-bar">
-            <h1>Home</h1>
+    <mat-sidenav-content class="tp-container">
+        <div class="tp-section">
+                <button mat-button (click)="sidenav.toggle()">Menu</button>
+            <div class="top-bar">
+                <h1>Home</h1>
+            </div>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

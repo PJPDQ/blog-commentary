@@ -1,13 +1,13 @@
-export interface blogPost {
+export interface BlogPost {
     id: number;
     title: string;
     description: string;
-    comment: commentary[];
+    comment: Commentary[];
 }
 
-export interface commentary {
+export interface Commentary {
     commentContent: string;
 }
-export const posts: blogPost[] = [];
-export const comments: commentary[] = [];
+export const posts: BlogPost[] = [];
+export const comments: Commentary[] = [];
 

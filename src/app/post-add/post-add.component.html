@@ -1,14 +1,15 @@
 <button class="addPost" (click)="addPost=!addPost">+</button>
 
-<form [formGroup]="postForm" (ngSubmit)="addingPost(postForm.value)" *ngIf="addPost">
+<form class="form-group" [formGroup]="postForm" (ngSubmit)="addingPost(postForm.value)" *ngIf="addPost">
     <div>
-        <span>Title: </span>
-        <textarea type="text" formControlName="title">Title: </textarea>
+        <label>Title: </label>
+        <input type="text" class="form-control" formControlName="title" placeholder="Enter Title">
+
     </div>
     
     <div>
-        <span>Description: </span>
-        <textarea type="text" formControlName="description" placeholder="What's happening? "></textarea>
+        <label>Description: </label>
+        <textarea class="form-control" type="text" formControlName="description" placeholder="What's happening? "></textarea>
     </div>
     <button class="button" type="submit">Add Post</button>
 </form>

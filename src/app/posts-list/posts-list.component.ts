@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostServiceService } from '../post-service.service';
 import { Observable, of } from 'rxjs';
-import { blogPost, commentary } from '../posts.module';
+import { BlogPost, Commentary } from '../posts.module';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -11,14 +11,13 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 
 export class PostsListComponent implements OnInit {
-  posts$: Observable<blogPost[]>;
+  posts$: Observable<BlogPost[]>;
   editPost;
   commentForm;
   constructor(
     private postService: PostServiceService,
     private fb: FormBuilder,
-  ) { 
-    this.commentForm = this.fb.group ( {
+  ) { this.commentForm = this.fb.group ( {
       commentContent: new FormControl('', [Validators.required])
     });
   }
@@ -27,11 +26,11 @@ export class PostsListComponent implements OnInit {
     this.posts$ = this.postService.getPosts();
   }
 
-  deletePost(post: blogPost): void {
+  deletePost(post: BlogPost): void {
     this.postService.deletePost(post);
   }
 
-  addingComment(post: blogPost, newComment: commentary): void {
+  addingComment(post: BlogPost, newComment: Commentary): void {
     this.postService.addingComment(post, newComment);
     this.commentForm.reset();
   }

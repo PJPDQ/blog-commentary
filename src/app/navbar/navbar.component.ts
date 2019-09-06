@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { blogPost } from '../posts.module'; 
+import { BlogPost } from '../posts.module';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PostServiceService } from '../post-service.service';
@@ -10,7 +10,7 @@ import { PostServiceService } from '../post-service.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  posts$: Observable<blogPost[]>;
+  posts$: Observable<BlogPost[]>;
   constructor(
     private route: ActivatedRoute,
     private postService: PostServiceService
